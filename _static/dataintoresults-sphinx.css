@@ -1,0 +1,120 @@
+
+
+.wy-nav-content-wrap {
+    background: rgba(0,0,0,0.05);
+}
+
+.wy-nav-content {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 15px;
+    padding-left: 15px;
+    position: relative;
+    background: #ffffff;
+}
+
+
+@media (min-width: 1200px) {
+	.wy-nav-content {
+	    padding-right: 15px;
+	    padding-left: 15px;
+	    width: 850px;
+	    max-width: 100%;
+	}
+}
+@media (min-width: 1300px) {
+	.wy-nav-content {
+	    width: 900px;
+	    max-width: 100%;
+	}
+}
+
+
+
+
+
+
+
+
+
+.wy-table-odd td, .wy-table-striped tr:nth-child(2n-1) td, .rst-content table.docutils:not(.field-list) tr:nth-child(2n-1) td {
+    background-color: #fff7eb;
+}
+
+
+.highlight {
+	background: #fff7eb;
+}
+
+.highlight .nt {
+    color: #613c04;
+    font-weight: bold;
+}
+
+.highlight .s {
+    color: #333333;
+}
+
+.highlight .na {
+    color: #613c04;
+}
+
+.highlight .c {
+    color: #999999;
+}
+
+a {
+    color: #fc9803;    
+}
+
+
+a:visited {
+    color: #fc9803;    
+}
+
+a:hover {
+    color: #994d00;    
+}
+
+.wy-menu-vertical li.current {
+    background: #fff7eb;
+}
+
+.wy-side-nav-search {
+	background-color: #fc9803;  
+}
+.wy-side-nav-search input[type=text] {
+	border-color: #ffb84f;
+}
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption {
+	color: #fc9803;  
+	font-size: 100%;
+}
+
+
+.wy-nav-side {
+	background-color: #ffffff;  
+}
+
+
+.wy-menu-vertical a, .wy-menu-vertical a:visited {
+	color: #404040;  
+
+}
+
+.wy-menu-vertical a:hover {
+	color: #fc9803;  
+}
+
+
+.wy-side-nav-search a:visited {
+	color: #ffffff;  
+}
+
+.wy-side-nav-search>div.version {
+    margin-top: -.4045em;
+    margin-bottom: .809em;
+    font-weight: normal;
+    color: rgba(255,255,255,0.5);
+}

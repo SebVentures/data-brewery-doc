@@ -1,0 +1,54 @@
+
+.. _store_h2:
+
+H2
+--------------------------
+
+`H2 <https://www.h2database.com>`_ is small footprint, Java-based, database 
+engine. While it is not a good option for big datawarehouse, it can be a 
+in memory SQL engine for simple transformation or as a local database stored 
+on the file system. A client/server database is also possible.
+
+There is some significant changes from other SQL databases:
+
+- You don't need to use *user* and *password* attributes for memory and 
+  filesystem databases (can be used if you connect to a remote database).
+- SSH tunneling is not supported. So you shouldn't use *sshUser* and 
+  *sshPassword* parameters.
+- The *database* is expected to be a file location (except in memory mode).
+
+You can see a full listing `on connection possibilities on H2 website <http://www.h2database.com/html/features.html#database_url>`_
+. We just add a semicolumn ":" between *host* and *database* when *host* 
+doesn't contain one already.
+
+Here is the code for a memory based datastore (by default) :
+
+.. code-block:: xml
+
+    <datastore name="h2_mem" type="h2"/> 
+
+
+Below is the code for a local filesystem mode. It will persist the database 
+in one or more file starting with "h2dbtest" in the local directory. You can 
+also use full paths like /var/lib/h2/mydb or reference the home path of the 
+current user using ~. In Windows, you need to use / as directory separators.
+By default (if not set), database will be "~/h2db".
+
+.. code-block:: xml
+
+    <datastore name="h2_fs" type="h2" host="file" database="./h2dbtest"/>
+
+
+Finaly you can connect to a remore H2 database like : 
+
+.. code-block:: xml
+
+    <datastore name="h2_fs" type="h2" host="tcp:/mydb.com:9092/" database="./h2dbtest" user="sa" password="sa"/>
+
+Case handling
+=============
+
+By default, H2 uppercase every identifier (table and columns) not
+protected by commas. Using Data Brewery, every identifier is protected.
+Therefore, you might want to give some in uppercase.
+
