@@ -7,9 +7,12 @@ Data Brewery documentation
 #############################
 
 
-Welcome to the DataIntoResults documentation. If you want to get started quickly, please jump to the :any:`getting started section <getting_started>`. You might want to read more about what :any:`DataIntoResults is <synopsis>` and why :any:`we are doing it <manifesto>`.
+Welcome to the Data Brewery documentation. 
+If you want to get started quickly, please jump to the :any:`getting started section <data_tool>`. 
+You might want to check out the blog `DataIntoResults <https://dataintoresults.com>`_ 
+and why `we are doing it <https://dataintoresults.com/post/data-warehouse-manifesto/>`_.
 
-In any case, if you need more support, you can reach us at support@dataintoresults.com.
+In any case, if you need more support or send feedback, you can reach us at support@databrewery.co.
 
 
 .. toctree::

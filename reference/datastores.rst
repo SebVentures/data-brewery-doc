@@ -8,7 +8,8 @@ Datastores
 .. toctree::
    :maxdepth: 1
 
-   stores/sql
+   stores/databases
+   stores/files
    stores/google_analytics
    stores/google_sheet
 

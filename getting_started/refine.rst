@@ -3,6 +3,13 @@
 Refine the data 
 -----------------
 
+The purpose of a data warehouse is to archive data and 
+refine it in order ease usage. Refining can be 
+blending of multiple data sources, fixing some
+data source issues and/or apply some business rules.
+
+For this tutorial, we 
+
 .. code-block:: xml
 
     <dataWarehouse>

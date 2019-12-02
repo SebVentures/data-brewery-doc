@@ -11,9 +11,9 @@ For instance, the following is a datastore describing a PostgreSQL database, wit
 .. code-block:: xml
 
     <datastore name="mydb" type="postgresql" host="mydb.myproject.com" user="admin" password="mypassword"> 
-    	<table name="test">
-    		<column name="a" type="int"/>
-    	</table>
+      <table name="test">
+        <column name="a" type="int"/>
+      </table>
     </datastore>
 
 You can find the list of supported datastore types :ref:`in the datastores section datastores <datastores>`.

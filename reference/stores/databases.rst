@@ -3,7 +3,7 @@
 
 
 
-SQL database
+SQL databases
 --------------------------
 
 
@@ -46,6 +46,9 @@ sshPassword                  (optionnal) If there is a sshUser, Datafactory will
                              password. If there is a sshUser
                              but no sshPassword DataFactory will 
                              try to use its ssh private key
+sshHost                      (optionnal) If specified, the SSH tunnel host
+                             If sshUser is set but not sshHost, host will be the sshHost
+                             and it will connect to localhost
 sshPrivateKeyLocation        Location of the private key file
 sshPrivateKeyFilePassphrase  Optional passphrase for the private key
 extendedConnectionParameters Connection parameters to add to defaults ones 
