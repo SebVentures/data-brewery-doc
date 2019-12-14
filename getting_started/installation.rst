@@ -21,5 +21,13 @@ You should get the following output :
 
 Congrats, you have installed Data Brewery !
 
-:ref:`Let's now see how project are structured. <structure>`
+In the following step you will learn more about Data Brewery, grab data from
+the web, archive it in a datawarehouse, model it and build an dashboard
+to monitor earthquakes (see below).
+
+:ref:`Let's start with how project are structured. <structure>`
+
+
+.. image:: ../images/earthquake-dashboard-excel.png
+   :align: center
 

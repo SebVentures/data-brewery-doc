@@ -28,14 +28,23 @@ a :ref:`datastore <specs_datastore>` and a :ref:`module <specs_module>`.
 
 
 To help you get started, you can initiate a working seed (the example which will 
-be detailled in the next pages) by calling :
+be detailled in the next pages) by calling the following command in a new directory :
 
 .. code-block:: bash
 
    ipa init simple
 
+
+There is also a seed for this tutorial, so you can just call :
+
+.. code-block:: bash
+
+   ipa init earthquake
+
+Which will create the dw.xml file used for the rest of the tutorial and the final Excel report template.
+
 You can continue to read this page to know more about complex project 
-structuration or go directly to the first step :ref:`accessing data with datastores <tuto_external_data>`.
+structuration or go directly to the first tutorial step :ref:`accessing data with datastores <tuto_external_data>`.
 
 Complex projects
 ----------------
