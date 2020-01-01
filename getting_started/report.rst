@@ -18,6 +18,11 @@ You can find some advice on how to use and organize Excel for reporting in my bl
 In the :ref:`external data <tuto_external_data>` part of this tutorial we saw that datastores
 can be used for data input. They can also be used for data output.
 
+For more information on managing Excel file, you can read 
+:ref:`the dedicated page <store_flat_files_xlsx>`. Here, we will just say that 
+each table should be linked to an Excel sheet, and the location of the 
+first data cell (first row and first column).
+
 .. code-block:: xml
 
   <!-- Output the earthquakes to an Excel report (./report/earthquake.xlsx) -->

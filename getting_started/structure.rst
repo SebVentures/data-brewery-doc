@@ -82,6 +82,7 @@ instead of the one declared in the XML.
 
 
 
+.. _environment_configuration:
 
 Environment configuration
 ##########################

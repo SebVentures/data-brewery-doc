@@ -4,9 +4,57 @@ Processes
 ============
 
 
-Processes are a succession of task that must be run in order.
+Processes are a succession of task that must be run in order. Each task is run 
+sequentially except if an error is raised previously. In such case, the rest of the tasks are 
+skipped.
 
-The possible task are :
+Process parameters are the following :
+
+=================== =====================
+Parameter           Description
+=================== =====================
+name                Name of the process
+email               Emails (separated by comma) to send a report at the end of the process
+                    (see :ref:`emails notifications <notification_email>`)
+emailWhen           Process outcomes (separated by comma) when to send an email.
+                    By default : success,warning,error (see :ref:`emails notifications <notification_email>`)
+slack               Slack webhook to send a post at the end of the process (see :ref:`Slack notifications <notification_slack>`)
+slackWhen           Process outcomes (separated by comma) when to send an Slack post.
+                    By default : success,warning,error (see :ref:`Slack notifications <notification_slack>`)
+=================== =====================
+
+A process can end with the following status : 
+
+- **success :** all task finished with as success 
+- **warning :** at last one stask finished with a warning and none with an error
+- **error :** at least one stask finished with an error
+
+Tasks
+------
+
+Task are elements (or steps) of a process (and can be defined only inside a process element).
+A task can succeed or it can fail with an error. However, there is a onError attribute to modify the outcome.
+
+Process parameters are the following :
+
+=================== =====================
+Parameter           Description
+=================== =====================
+name                Name of the task. This is optional. If not given it will take a name depending on the task type.
+type                Type of the task (see below)
+onError             How should we treat an error in this task. Possible values are : error (default), warning and success
+=================== =====================
+
+
+A process can end with the following status : 
+
+- **success :** all task finished with as success 
+- **warning :** at last one stask finished with a warning and none with an error
+- **error :** at least one stask finished with an error
+- **unprocessed :** the tasks was not processed because an upstream task ended with an error
+
+
+The possible task types are :
 
 =================== =====================
 Task type           Description
@@ -20,14 +68,19 @@ For instance, the following chunk of code define a process that
 process two modules (a and b) then datastore c
 and finally run the program shell/d.bat.
 
+
 .. code-block:: xml
 
   <process name="datastore_process">
-    <task module="a"/>
+    <task name="module_a" module="a"/>
+    <!-- name of this task will be b -->
     <task module="b"/>
-    <task datastore="c"/>
+    <!-- name of this task will be c and, if it fail, its status will be warning instead of error, the process will continue -->
+    <task datastore="c" onError="warning"/>
+    <!-- name of this task will be shell/d -->
     <task shellCommand="shell/d"/>
   </process>
+
 
 
 .. _processable_datastores:

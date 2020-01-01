@@ -7,7 +7,7 @@ Flat Files
 Flat files regroup all files that lies under your local filesystem.
 This connector can read and/or write (see :ref:`writing <store_flat_files_csv_writing>`) 
 to such files.
-Currently, only :ref:`CSV files <store_flat_files_csv>` are supported.
+Currently, :ref:`CSV files <store_flat_files_csv>` and :ref:`XLSX files <store_flat_files_xlsx>`are supported.
 
 
 Parameters on the datastore element are the following :
@@ -16,7 +16,7 @@ Parameters on the datastore element are the following :
 Parameters      Details 
 =============== ==========
 name            how you want this data store be refered as
-type            should be *flat*
+type            should be *file*
 location        root location for all tables of this datastore. 
                 This parameter is optionnal
 =============== ==========
@@ -91,7 +91,7 @@ structure. If absent, the structure of the feeding stream will be used.
 
 .. code-block:: xml
 
-  <datastore name="flat" type="flat" location="/data/">
+  <datastore name="flat" type="file" location="/data/">
     <!-- File that will be used as source -->
     <table name="src" type="csv" location="input.csv">
       <column name="col1" type="text"/>
@@ -120,3 +120,51 @@ command :
   ipa run-datastore flat
 
 It will produce the output.csv and output-sql.csv files.
+
+
+.. _store_flat_files_xlsx:
+
+Excel files (XLSX only)
+=========================
+
+
+An Excel tables has the following parameters. You can read or write from an Excel file.
+
+=============== ==========
+Parameters      Details 
+=============== ==========
+name            how you want this table be refered as
+type            should be *xlsx*
+location        location of the file (or files, works like CSV files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
+sheet           Which sheet in the file should be used
+colStart        Column index of the first column (start with A)
+rowStart        Row number where data should be read/written (start at 1, header should be excluded)
+=============== ==========
+
+Currently, there is also metadata discovery, meaning you need to specify the column names
+and types you want to read from the Excel file. If a header is present in the file,
+it shouldn't be used (*rowStart* should be after the header row).
+
+On Windows, you can't write to an Excel file which is already open in Excel.
+
+The following example shows a datastore named excel that acces files in the directory data.
+Two tables are defined
+
+.. code-block:: xml
+
+  <datastore name="excel" type="file" location="./data/">
+    <!-- File that will be used as source -->
+    <table name="src" type="xlsx" location="input.xlsx"
+      sheet="input_sheet" rowStart="2" colStart="A">
+      <column name="col1" type="text"/>
+      <column name="col1" type="datetime"/>
+    </table> 
+    <!-- File that will be used as output (no need to provide columns/metadata) -->
+    <table name="src" type="xlsx" location="input.xlsx"
+      sheet="output_sheet" rowStart="2" colStart="A">
+      <source type="datastore" datastore="excel" table="src"/>
+    </table>
+  </datastore>
+
+
+

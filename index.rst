@@ -36,5 +36,6 @@ In any case, if you need more support or send feedback, you can reach us at supp
 
    reference/specification
    reference/command_line
+   reference/notifications
    reference/datastores
 
