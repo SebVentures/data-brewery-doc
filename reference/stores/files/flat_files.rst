@@ -28,24 +28,25 @@ CSV files
 
 A CSV tables has the following parameters
 
-=============== ==========
-Parameters      Details 
-=============== ==========
-name            how you want this table be refered as
-type            should be *csv*
-location        location of the file (or files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
-locale          encoding to use for the file. By default it is "UTF-8" (more information 
-                `here <https://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html>`_)
-compression     compression format to use. Can be none (default, no compression) 
-                or gz (for gzip compression)
-delimiter       separator for cells (default tabulation, "\t")
-header          is there an header (first row) : true (default) or false
-newline         character to use to specify a new line (default "\n")
-quote           character to use that quote cells (default ", specified by "\"")
-quoteEscape     character to use before a quote character inside a cell that isn't 
-                a quote (default " specified by "\"")
-comment         character which at the begining of a line indicate that it should be skipped
-=============== ==========
+==================== ==========
+Parameters           Details 
+==================== ==========
+name                 how you want this table be refered as
+type                 should be *csv*
+location             location of the file (or files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
+locationSeparator    separator for *location* (see :ref:`pattern reference <store_flat_files_csv_pattern>`)
+locale               encoding to use for the file. By default it is "UTF-8" (more information 
+                     `here <https://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html>`_)
+compression          compression format to use. Can be none (default, no compression) 
+                     or gz (for gzip compression)
+delimiter            separator for cells (default tabulation, "\t")
+header               is there an header (first row) : true (default) or false
+newline              character to use to specify a new line (default "\n")
+quote                character to use that quote cells (default ", specified by "\"")
+quoteEscape          character to use before a quote character inside a cell that isn't 
+                     a quote (default " specified by "\"")
+comment              character which at the begining of a line indicate that it should be skipped
+==================== ==========
 
 
 .. _store_flat_files_csv_pattern:
@@ -74,6 +75,24 @@ Therefore :
 * /data/year=2019/month=11/day=01/file-20191101.csv : will be NOT be taken (one directory)
 * /data/year=2019/month=11/notafile.csv : will be NOT be taken (not a good file name)
 
+
+Additionnaly, the *location* attribute at the table level can store multiple locations.
+Each location is separated by the pipe character ('|') but you can change the separator
+using the *locationSeparator* attribute.
+
+You can mix multiple locations and the patterns.
+
+For instance, the following example will read every csv files in the repertory /data/a/ and
+all csv files in the repertory /data/b/ (but not in the repertory /data/c/ for instance).
+
+.. code-block:: xml
+
+  <datastore name="flat" type="flat" location="/data/">
+    <!-- File that will be used as source -->
+    <table name="src" type="csv" location="a/*.csv|b/*.csv">
+      <column name="col1" type="text"/>
+    </table>
+  </datastore>
 
 
 .. _store_flat_files_csv_writing:
@@ -130,16 +149,17 @@ Excel files (XLSX only)
 
 An Excel tables has the following parameters. You can read or write from an Excel file.
 
-=============== ==========
-Parameters      Details 
-=============== ==========
-name            how you want this table be refered as
-type            should be *xlsx*
-location        location of the file (or files, works like CSV files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
-sheet           Which sheet in the file should be used
-colStart        Column index of the first column (start with A)
-rowStart        Row number where data should be read/written (start at 1, header should be excluded)
-=============== ==========
+================== ==========
+Parameters          Details 
+================== ==========
+name               how you want this table be refered as
+type               should be *xlsx*
+location           location of the file (or files, works like CSV files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
+locationSeparator  separator for *location* (works like CSV files, see :ref:`pattern reference <store_flat_files_csv_pattern>`)
+sheet              Which sheet in the file should be used
+colStart           Column index of the first column (start with A)
+rowStart           Row number where data should be read/written (start at 1, header should be excluded)
+================== ==========
 
 Currently, there is also metadata discovery, meaning you need to specify the column names
 and types you want to read from the Excel file. If a header is present in the file,
