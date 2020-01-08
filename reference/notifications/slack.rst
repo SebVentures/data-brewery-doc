@@ -3,14 +3,24 @@
 Slack webhook notifications
 ============================
 
-The webhook Slack notification is an easy way to get notification on designed Slack channel.
-Each process can have a webhook and will post a notification there when the process end.
-As you can see in :ref:`the process section <spec_process>`, the slackWebhook attribute let you
-specify the Slack webhook URL to use (:ref`see below <notification_slack_webhook>`
-on how to get the URL) and slackWhen let you specify the events when you wan to push a Slack notification 
-(error, warning and/or success, :ref:`see the example below <notification_slack_example>`).
+The webhook Slack notification is an easy way to get notification on a Slack channel.
+Each process can have a webhook and will post a notification on the associated channel 
+when the process end.
+As you can see in :ref:`the process section <spec_process>`, the *slackWebhook* attribute let you
+specify the Slack webhook URL to use (:ref:`see below <notification_slack_webhook>`
+on how to get the URL) and *slackWhen* let you specify the events when you wan to push a Slack notification 
+(error, warning and/or success, separated by comma).
 
-You can see below three examples of Slack notifications for processes succeeding, warning and failing.
+
+.. code-block:: xml
+
+  <process name="liveSlackSuccess"
+    slackWebhook = "https://hooks.slack.com/services/*******/*******/*******"
+    slackWhen="error,warning">
+    <!-- tasks here -->
+  </process>
+
+You can see below three examples of Slack notifications for processes failing, succeeding and warning.
 
 .. image:: ../../images/data-brewery-slack.png
    :align: center
@@ -58,7 +68,7 @@ It can be something like #etl or #etl-log.
 .. image:: ../../images/slack-incoming-2.png
    :align: center
 
-The you can click the Copy button to get the Webhook URL. You're done, congrats !
+Then you can click the Copy button to get the Webhook URL. You're done, congrats !
 
 
 
@@ -72,7 +82,7 @@ The following process will send a Slack notification through the *slackWebhook* 
 end in failure (error) or with a warning (but don't send notification when the process succeed).
 
 It is recommanded to set those parameters in the configuration files. Indeed, it's most likely
-that you want notification only for the production environment (see 
+that you want notifications only for the production environment (see 
 :ref:`environment configuration <environment_configuration>` for more details).
 
 .. code-block:: xml
