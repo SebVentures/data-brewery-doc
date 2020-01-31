@@ -4,10 +4,10 @@
 Flat Files
 -----------
 
-Flat files regroup all files that lies under your local filesystem.
+Flat files regroup all files that lies under your local filesystem. 
 This connector can read and/or write (see :ref:`writing <store_flat_files_csv_writing>`) 
 to such files.
-Currently, :ref:`CSV files <store_flat_files_csv>` and :ref:`XLSX files <store_flat_files_xlsx>`are supported.
+Currently, :ref:`CSV files <store_flat_files_csv>` and :ref:`XLSX files <store_flat_files_xlsx>` are supported.
 
 
 Parameters on the datastore element are the following :

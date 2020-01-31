@@ -10,8 +10,7 @@ Datastores
 
    stores/databases
    stores/files
-   stores/google_analytics
-   stores/google_sheet
+   stores/google_services
 
 
 

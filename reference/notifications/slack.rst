@@ -81,10 +81,6 @@ Example
 The following process will send a Slack notification through the *slackWebhook* when the process
 end in failure (error) or with a warning (but don't send notification when the process succeed).
 
-It is recommanded to set those parameters in the configuration files. Indeed, it's most likely
-that you want notifications only for the production environment (see 
-:ref:`environment configuration <environment_configuration>` for more details).
-
 .. code-block:: xml
 
   <process name="liveSlackSuccess"
@@ -94,4 +90,9 @@ that you want notifications only for the production environment (see
     <task module="archive_web"/>
     <task module="earthquake"/>
   </process>
+
+It is recommanded to set those parameters in the configuration files. Indeed, it's most likely
+that you want notifications only for the production environment (see 
+:ref:`environment configuration <environment_configuration>` for more details).
+
 
