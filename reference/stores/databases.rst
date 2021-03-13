@@ -17,6 +17,7 @@ Each database have specificities that are described at their pages :
 
    databases/postgresql
    databases/mysql
+   databases/oracle
    databases/h2
 
    
